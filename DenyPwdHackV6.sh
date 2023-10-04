@@ -85,14 +85,11 @@ function process_logread_output {
     # 将时间转换为时间戳
     # timestamp=$(date -d "$log_time" +%s 2>/dev/null)
     timestamp=$(get_unix_time $log_time)
-
     if [ -n "$timestamp" ]; then
       # 获取当前时间戳
       current_timestamp=$(date +%s)
-    
       # 计算时间戳差值
       time_diff=$((current_timestamp - timestamp))
-    
       # 如果差值小于threshold秒，则输出时间戳和原始日志行
       if [ "$time_diff" -lt "$threshold" ]; then
         # 将结果写入输出变量
@@ -102,7 +99,6 @@ function process_logread_output {
        : # 如果转换失败
     fi
   done <<< "$logread_output"  # 通过 <<< 运算符传递logread的输出
-
   # 返回所有echo输出的内容
  echo -e "$output"
 }
