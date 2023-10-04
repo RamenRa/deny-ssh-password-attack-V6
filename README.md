@@ -23,9 +23,26 @@ crontab -e
 
 3. 按需要贴入以下内容: 
 ```
-每3 小时执行一次脚本例子： 0 */3 * * * /root/DenyPwdHackV6.sh
-每15分钟执行一次脚本例子： */15 * * * * /root/DenyPwdHackV6.sh
+0 */3 * * * /root/DenyPwdHackV6.sh   # 每3 小时执行一次脚本例子：
+*/1 * * * * /root/DenyPwdHackV6.sh   # 每1分钟执行一次脚本例子： 
 ```
+
+#### 列出已有封禁规则及序号：
+```
+iptables -L DenyPwdHack --line-numbers    # ipv4规则
+ip6tables -L DenyPwdHack6 --line-numbers   # ipv6规则
+```
+#### 按照规则序号 手动删除规则：
+```
+iptables -D DenyPwdHack 0   # ipv4规则  将‘0’替换为需要删除的规则序号
+ip6tables -D DenyPwdHack6 0   # ipv6规则 将‘0’替换为需要删除的规则序号
+```
+
+#### 查看日志
+```
+cat /tmp/DenyPwdHack.log
+```
+
 
 ### 脚本中的参数：
 ***
