@@ -23,8 +23,8 @@ crontab -e
 
 3. 按需要贴入以下内容: 
 ```
-0 */3 * * * /root/DenyPwdHackV6.sh   # 每3 小时执行一次脚本例子：
-*/1 * * * * /root/DenyPwdHackV6.sh   # 每1分钟执行一次脚本例子： 
+0 */3 * * * /root/DenyPwdHackV6.sh   # 每3 小时执行一次脚本例子
+*/1 * * * * /root/DenyPwdHackV6.sh   # 每1分钟执行一次脚本例子
 ```
 
 #### 列出已有封禁规则及序号：
@@ -57,7 +57,7 @@ cat /tmp/DenyPwdHack.log
 
 3. 检测到ssh或者luci攻击后封禁的端口，针对ip只封禁这几个端口
  
-   Deny_Port=22,443，80
+   Deny_Port=22,443,80
 
 4. 黑名单过期时间,单位小时
  
